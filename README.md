@@ -2,7 +2,12 @@
 
 ### Instalação
 ```sh
-npm install @corelabbr/fanthon-card-js
+npm install fanthon-card
+```
+
+### Import a lib
+```js
+import FanthonReact from 'fanthon-card/dist';
 ```
 
 ### Coloque o compoe
