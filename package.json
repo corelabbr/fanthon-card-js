@@ -1,0 +1,19 @@
+{
+  "name": "fanthon-card",
+  "version": "1.0.0",
+  "description": "### Instalação ```sh npm install @corelabbr/fanthon-card-js ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corelabbr/fanthon-card-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/corelabbr/fanthon-card-js/issues"
+  },
+  "homepage": "https://github.com/corelabbr/fanthon-card-js#readme"
+}
