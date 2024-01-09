@@ -1,6 +1,6 @@
 {
   "name": "fanthon-card",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "### Instalação ```sh npm install @corelabbr/fanthon-card-js ```",
   "main": "dist/index.js",
   "scripts": {
