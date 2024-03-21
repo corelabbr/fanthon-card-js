@@ -17,12 +17,16 @@ const FanthonReact = ({ token, options, onSubmit }) => {
   }
 
   useEffect(() => {
-    window.addEventListener('message', event => {
-      if (!onSubmit) return;
-      if (event.origin !== origin) return;
-      onSubmit(event.data); 
-    });
-  }, [onSubmit]);
+    const onMessaging = (event) => {
+      if (!onSubmit) return
+      if (event.origin !== origin) return
+      onSubmit(event.data)
+    }
+    window.addEventListener('message', onMessaging)
+    return () => {
+      window.removeEventListenerEventListener('message', onMessaging)
+    }
+  }, [onSubmit])
 
   return (
     <div>
