@@ -24,7 +24,7 @@ const FanthonReact = ({ token, options, onSubmit }) => {
     }
     window.addEventListener('message', onMessaging)
     return () => {
-      window.removeEventListenerEventListener('message', onMessaging)
+      window.removeEventListener('message', onMessaging)
     }
   }, [onSubmit])
 
