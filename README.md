@@ -30,3 +30,10 @@ import FanthonReact from 'fanthon-card/dist';
 ```sh
 FANTHON_PUBLISHABLE_KEY=[SEU_TOKEN]
 ```
+
+Para atualizar o Build
+```sh
+npm run build:babel
+npm publish
+```
+

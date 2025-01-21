@@ -3,10 +3,10 @@ import { Row, Col, Button } from 'antd';
 
 const origin = 'https://assets.fanthon.com.br';
 
-const FanthonReact = ({ token, options, onSubmit }) => {
+const FanthonReact = ({ url, token, options, onSubmit }) => {
   if (!token) return <div></div>;
 
-  const { base, ...fields } = options;
+  const { base, ...fields } = options || {};
   const jsonString = JSON.stringify(fields);
   const encodedData = encodeURIComponent(jsonString);
   const primary_color = encodeURIComponent(base?.primary_color);
@@ -33,7 +33,7 @@ const FanthonReact = ({ token, options, onSubmit }) => {
       <iframe 
         title="fanthon_card"
         id="fanthon_card"
-        src={`https://assets.fanthon.com.br/?access_token=${token}&primary_color=${primary_color}&fields=${encodedData}`} 
+        src={`https://assets.fanthon.com.br/?access_token=${token}&primary_color=${primary_color}&fields=${encodedData}${url ? `&access_url=${url}`: ''}`} 
         bordered="false"
         width="100%" 
         height="350" 
