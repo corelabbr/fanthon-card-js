@@ -61,6 +61,8 @@ const FanthonReact = ({ url, token, options, onSubmit }) => {
               border: base?.primary_color,
             }}
             block
+            loading={base?.loading ?? false}
+            disabled={base?.disabled ?? false}
           >
             Pagar
           </Button>
