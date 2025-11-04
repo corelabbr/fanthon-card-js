@@ -6,11 +6,11 @@ const origin = 'https://assets.fanthon.com.br';
 const FanthonReact = ({ url, token, options, onSubmit }) => {
   if (!token) return <div></div>;
 
-  const { base, ...fields } = options || {};
-  const jsonString = JSON.stringify(fields);
+  const { base, submitLabel = 'Pagar', theme = 'light', ...fields } = options || {};
+  const jsonString = JSON.stringify({ ...fields, theme });
   const encodedData = encodeURIComponent(jsonString);
   const primary_color = encodeURIComponent(base?.primary_color);
-  
+
   const onClick = () => {
     const iframe = document.getElementById('fanthon_card');
     iframe.contentWindow.postMessage('click', origin);
@@ -29,34 +29,34 @@ const FanthonReact = ({ url, token, options, onSubmit }) => {
   }, [onSubmit])
 
   return (
-    <div>
-      <iframe 
+    <div style={{ background: theme === 'dark' ? '#000' : '#FFF'}}>
+      <iframe
         title="fanthon_card"
         id="fanthon_card"
-        src={`https://assets.fanthon.com.br/?access_token=${token}&primary_color=${primary_color}&fields=${encodedData}${url ? `&access_url=${url}`: ''}`} 
+        src={`https://assets.fanthon.com.br/?access_token=${token}&primary_color=${primary_color}&fields=${encodedData}${url ? `&access_url=${url}` : ''}`}
         bordered="false"
-        width="100%" 
-        height="350" 
+        width="100%"
+        height="350"
         allowtransparency="true"
         seamless
-        style={{ 
-          border: 'none', 
+        style={{
+          border: 'none',
           background: 'transparent',
           backgroundColor: 'transparent',
           overflow: 'hidden',
         }}
       >
       </iframe>
-      
+
       <Row gutter={16}>
         <Col span={24}>
-          <Button 
+          <Button
             size="large"
             type="primary"
             htmlType="submit"
             onClick={onClick}
-            style={{ 
-              padding: '20px 60px 40px 60px', 
+            style={{
+              padding: '20px 60px 40px 60px',
               background: base?.primary_color,
               border: base?.primary_color,
             }}
@@ -64,7 +64,7 @@ const FanthonReact = ({ url, token, options, onSubmit }) => {
             loading={base?.loading ?? false}
             disabled={base?.disabled ?? false}
           >
-            Pagar
+            {submitLabel}
           </Button>
         </Col>
       </Row>
